@@ -32,7 +32,7 @@ group :test do
   gem 'shoulda-matchers',   '1.4.2'
   gem 'timecop',            '0.5.9.2'
   gem 'simplecov', '0.7.1', :require => false
-  # gem 'guard-rspec', '2.4.1'
+  gem 'guard-rspec', '2.4.1'
   gem 'capybara', '2.0.2'
   gem 'poltergeist',        '1.1.0'
 end

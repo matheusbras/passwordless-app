@@ -23,6 +23,13 @@ describe User do
     end
   end
 
+  describe ".generate_token" do
+    before do
+      SecureRandom.stub(:hex).and_return("--token-1--", "--token-2--")
+    end
+
+    it { User.generate_token.should eq("--token-1--") }
+  end
   describe ".acess_token_exists?(token)" do
     let!(:user) { create(:user) }
 

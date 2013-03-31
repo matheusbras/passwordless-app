@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   def self.access_token_exists?(token)
     where(access_token: token).any?
   end
+
+  def self.generate_token
+    loop do
+      token = SecureRandom.hex(30)
+      return token unless User.access_token_exists?(token)
+    end
+  end
 end

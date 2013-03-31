@@ -23,4 +23,10 @@ describe User do
     end
   end
 
+  describe ".acess_token_exists?(token)" do
+    let!(:user) { create(:user) }
+
+    it { User.access_token_exists?("--token--").should be_true }
+    it { User.access_token_exists?("another-auth-token").should be_false }
+  end
 end

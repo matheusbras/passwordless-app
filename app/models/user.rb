@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   validates :email, :access_token, presence: true
   validates :email, uniqueness: true, format: { with: EMAIL_REGEX }
 
+  def self.access_token_exists?(token)
+    where(access_token: token).any?
+  end
 end

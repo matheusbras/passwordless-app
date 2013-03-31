@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
       return token unless User.access_token_exists?(token)
     end
   end
+
+  def save_and_generate_token
+    self.access_token = User.generate_token
+    save
+  end
 end

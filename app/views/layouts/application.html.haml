@@ -5,7 +5,7 @@
     %meta{:name => "keywords", :content => ""}
     %meta{:name => "description", :content => ""}
 
-    %title= yield(:title) + "Titulo aqui"
+    %title= yield(:title) + "The Passwordless App"
 
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}
     = yield(:header_tags)
@@ -21,7 +21,7 @@
       <script type="text/javascript">
 
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'XXXXX-XXXX']);
+        _gaq.push(['_setAccount', 'UA-39727689-1']);
         _gaq.push(['_trackPageview']);
 
         (function() {
@@ -35,6 +35,8 @@
   %body{:id => controller.controller_name}
     #wrap
       %header
+        %h1 The Passwordless App
+        %h2 O app que não pede pra você lembrar uma senha que você vai esquecer.
         #masthead
           /- if current_user
           /  %p
@@ -44,25 +46,12 @@
           /  %p
           /    = link_to "Acesse com Facebook", "/auth/facebook", :id => "facebook-connect"
 
-        #logo<
-          = link_to "Logo", root_url
-
-        - if notice
-          %p.notice
-            = notice
-        - if alert
-          %p.alert
-            = alert
-
-      %hr
       #container
         %section{:role => "main"}
+          - if notice
+            %p.notice
+              = notice
+          - if alert
+            %p.alert
+              = alert
           = yield
-
-        - if content_for?(:sidebar)
-          %aside
-            = yield(:sidebar)
-      %hr
-      %footer
-        %p
-          = "Copyright &copy; #{Time.zone.now.year} App".html_safe

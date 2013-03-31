@@ -4,7 +4,6 @@ html, body, div, h1, h2, h3, h4, ul, ol, li, form, fieldset, select, input, text
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
-	background: transparent;
 }
 
 a, ins { text-decoration: none; }

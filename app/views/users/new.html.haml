@@ -1,2 +1,15 @@
-%h1 Users#new
-%p Find me in app/views/users/new.html.haml
+#awesome-form
+  %h1 Crie sua conta agora!
+  %h2 Só precisa do email. Juro que não te mando spam.
+
+  = form_for @user do |f|
+
+    - if @user.errors.any?
+      .error-message
+        - @user.errors.full_messages.each do |message|
+          %p= message
+
+    = f.email_field :email, placeholder: "Digite aqui seu email", required: true
+
+    .action
+      = f.submit "Crie minha conta então!"

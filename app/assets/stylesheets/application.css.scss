@@ -60,6 +60,29 @@ p.notice {
   color: #fff;
 }
 
+.kitty {
+  width: 500px;
+  height: 500px;
+  margin: 20px auto;
+}
+
+.welcome {
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#logout-link {
+  color: #666;
+  background: #fff;
+  position: fixed;
+  font-size: 12px;
+  top: 20px;
+  left: 20px;
+  padding: 3px;
+  border-radius: 3px;
+}
+
 #awesome-form {
   width: 500px;
   margin: 20px auto;

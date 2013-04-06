@@ -1,10 +1,15 @@
 Passwordless::Application.routes.draw do
+  get "secret/index"
+
   resources :users, only: [:new, :create]
 
   root to: "users#new"
 
   match "/auth/:token" => "sessions#create",  as: :auth, via: :get
   match "/logout"      => "sessions#destroy", as: :logout, via: :delete
+
+  match "/secret_page" => "secret#index",     as: :secret_page, via: :get
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

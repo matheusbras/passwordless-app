@@ -3,6 +3,9 @@ Passwordless::Application.routes.draw do
 
   root to: "users#new"
 
+  match "/auth/:token" => "sessions#create",  as: :auth, via: :get
+  match "/logout"      => "sessions#destroy", as: :logout, via: :delete
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

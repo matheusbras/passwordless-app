@@ -68,6 +68,30 @@ describe User do
         end.to change { existing_user.access_token }.from("--existing-token--").to("--token-1--")
       end
     end
+
+    describe "the notification" do
+      let(:new_user) { build(:user, email: "jonh@doe.com", access_token: nil) }
+
+      context "valid" do
+        it "sends an email after saving" do
+          expect do
+            new_user.generate_access_token_and_save
+          end.to change { ActionMailer::Base.deliveries.count }.by(1)
+        end
+      end
+
+      context "invalid" do
+        before do
+          new_user.stub(:save).and_return(false)
+        end
+
+        it "does not send the email" do
+          expect do
+            new_user.generate_access_token_and_save
+          end.to_not change { ActionMailer::Base.deliveries.count }.by(1)
+        end
+      end
+    end
   end
 
   describe ".acess_token_exists?(token)" do

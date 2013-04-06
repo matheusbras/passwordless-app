@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   end
 
   def generate_access_token_and_save
-    generate_access_token and save
+    Notification.auth_link(self).deliver if generate_access_token and save
   end
 
   private

@@ -19,7 +19,7 @@ describe SessionsController do
           do_action
         end
 
-        it { should redirect_to(secret_page_path) }
+        it { should redirect_to(root_url) }
         it { should set_the_flash.to("Acesso inválido... recupere sua senha.") }
       end
 
@@ -42,7 +42,7 @@ describe SessionsController do
           do_action
         end
 
-        it { should redirect_to(new_user_path) }
+        it { should redirect_to(secret_page_path) }
         it { should set_the_flash.to("Você está online! :)") }
       end
 

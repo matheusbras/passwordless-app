@@ -1,4 +1,4 @@
 - content_for :message_title do
   = "Aqui está seu link de acesso!"
 
-%p= link_to "#", "#"
+%p= link_to auth_url(@user.access_token), auth_url(@user.access_token)

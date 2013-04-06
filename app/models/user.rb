@@ -10,12 +10,10 @@ class User < ActiveRecord::Base
     where(access_token: token).any?
   end
 
+  def generate_access_token_and_save
+    generate_access_token and save
   end
 
-  def save_and_generate_token
-    self.access_token = User.generate_token
-    save
-  end
   private
     def generate_access_token
       loop do

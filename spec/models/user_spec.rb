@@ -23,7 +23,7 @@ describe User do
     end
   end
 
-  describe "#save_and_generate_token" do
+  describe "#generate_access_token_and_save" do
     before do
       SecureRandom.stub(:hex).and_return("--token-1--", "--token-2--")
     end
@@ -32,13 +32,13 @@ describe User do
       let(:new_user) { build(:user, email: "jonh@doe.com", access_token: nil) }
 
       it "persists the user" do
-        new_user.save_and_generate_token
+        new_user.generate_access_token_and_save
         new_user.should be_persisted
       end
 
       it "generates an access_token" do
         expect do
-          new_user.save_and_generate_token
+          new_user.generate_access_token_and_save
         end.to change { new_user.access_token }.from(nil).to("--token-1--")
       end
     end
@@ -48,13 +48,13 @@ describe User do
       let(:new_user) { build(:user, email: "jonh@doe.com", access_token: nil) }
 
       it "persists the user" do
-        new_user.save_and_generate_token
+        new_user.generate_access_token_and_save
         new_user.should be_persisted
       end
 
       it "generates an access_token" do
         expect do
-          new_user.save_and_generate_token
+          new_user.generate_access_token_and_save
         end.to change { new_user.access_token }.from(nil).to("--token-2--")
       end
     end
@@ -64,7 +64,7 @@ describe User do
 
       it "generates a new token" do
         expect do
-          existing_user.save_and_generate_token
+          existing_user.generate_access_token_and_save
         end.to change { existing_user.access_token }.from("--existing-token--").to("--token-1--")
       end
     end

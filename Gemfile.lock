@@ -101,6 +101,10 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    launchy (2.2.0)
+      addressable (~> 2.3)
+    letter_opener (1.1.0)
+      launchy (~> 2.2.0)
     listen (0.7.3)
     lumberjack (1.0.3)
     mail (2.5.3)
@@ -228,6 +232,7 @@ DEPENDENCIES
   haml-rails (= 0.4)
   integration!
   jquery-rails (= 2.2.1)
+  letter_opener
   pg (= 0.14.1)
   poltergeist (= 1.1.0)
   pry-rails (= 0.2.2)

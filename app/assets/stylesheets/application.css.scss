@@ -52,7 +52,7 @@ p.notice {
   width: 300px;
   margin: 20px auto;
   text-align: center;
-  background: rgb(162, 24, 24);
+  background: rgb(99, 190, 99);
   border: 1px rgb(235, 95, 95) solid;
   border-radius: 3px;
   padding: 10px;
@@ -73,8 +73,7 @@ p.notice {
 }
 
 #logout-link {
-  color: #666;
-  background: #fff;
+  color: #fff;
   position: fixed;
   font-size: 12px;
   top: 20px;
@@ -84,10 +83,13 @@ p.notice {
 }
 
 #awesome-form {
+  padding: 20px;
+  background: #fefefe;
+  border: 1px #fff solid;
   width: 500px;
-  margin: 20px auto;
+  margin: 90px auto 0 auto;
   text-align: center;
-  color: #fff;
+  color: #666;
 
   .error-message {
     font-size: 12px;
@@ -99,24 +101,29 @@ p.notice {
   }
 
   h2 {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
   }
 
   input[type="email"] {
-    border: 0;
+    text-align: center;
+    border: 1px #ccc solid;
     border-radius: 3px;
     padding: 10px;
+    width: 280px;
   }
 
   input[type="submit"] {
+    font-weight: bold;
+    font-size: 13px;
     border: none;
-    padding: 10px;
+    padding: 10px 30px;
     margin-top: 20px;
     cursor: pointer;
-    background: #30C4C9;
+    background: #E65540;
     color: #fff;
     border-radius: 3px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   }
 }

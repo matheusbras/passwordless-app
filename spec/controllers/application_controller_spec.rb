@@ -20,6 +20,21 @@ describe ApplicationController do
         controller.send(:current_user).should be_nil
       end
     end
+
+    context "can't find the user" do
+      before do
+        session[:user_id] = "#77"
+      end
+
+      it "returns nil" do
+        controller.send(:current_user).should be_nil
+      end
+
+      it "unsets the session[:user_id]" do
+        controller.send(:current_user)
+        session[:user_id].should be_nil
+      end
+    end
   end
 
   describe "user_signed_in? helper" do
